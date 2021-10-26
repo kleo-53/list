@@ -47,6 +47,34 @@ Position* last(List* list)
     return currentPosition;
 }
 
+Position* first(List* list)
+{
+    Position* positionFirst = malloc(sizeof(Position));
+    positionFirst->position = list->head;
+    return positionFirst;
+}
+
+Position* next(Position* position)
+{
+    Position* newPosition = malloc(sizeof(Position));
+    newPosition->position = position->position->next;
+    return newPosition;
+}
+
+Position* previous(Position* position)
+{
+    Position* newPosition = malloc(sizeof(Position));
+    newPosition->position = position->position->previous;
+    return newPosition;
+}
+
+void remove(Position* position)
+{
+    position->position->previous->next = position->position->next;
+    position->position->next->previous = position->position->previous;
+    free(position);
+}
+
 bool isEnd(Position* position)
 {
     return position->position == NULL || position->position->next == NULL || position->position->previous == NULL;

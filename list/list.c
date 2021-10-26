@@ -19,7 +19,6 @@ typedef struct Position
     ListElement* position;
 } Position;
 
-
 List* createList()
 {
     return calloc(1, sizeof(List));
@@ -35,6 +34,16 @@ void deleteList(List* list)
         position = list->head;
     }
     free(list);
+}
+
+int value(Position* position)
+{
+    return position->position->value;
+}
+
+void setValue(Position* position, int value)
+{
+    position->position->value = value;
 }
 
 Position* last(List* list)

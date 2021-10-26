@@ -102,3 +102,8 @@ void addAfter(List* list, Position* position, int value) // not ready
     newElement->next = position->position->next;
     position->position->next = newElement;
 }
+
+void deletePosition(Position* position)
+{
+    free(position);
+}

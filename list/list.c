@@ -100,7 +100,7 @@ void addAfter(List* list, Position* position, int value) // not ready
         return;
     }
     newElement->next = position->position->next->previous;
-    position->position->next->previous = newElement;
+    position->position->next->previous = newElement->next;
     newElement->previous = position->position->next;
     position->position->next = newElement;
 }
